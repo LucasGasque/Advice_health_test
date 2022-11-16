@@ -7,8 +7,6 @@ db = SQLAlchemy()
 
 
 def init_app(app: Flask):
-    print(os.getenv("DB_URI"))
-
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URI")
     app.config["JSON_SORT_KEYS"] = False
@@ -17,4 +15,6 @@ def init_app(app: Flask):
     app.db = db
 
     # imports here
-    from app.models.teste import Teste
+    from app.models.auth import Auth
+    from app.models.car_owners import CarOwner
+    from app.models.cars import Car
